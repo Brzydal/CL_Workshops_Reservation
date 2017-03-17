@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  {% load static %}  
+  <link rel="stylesheet" href="{% static 'room/css/style.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<header>ROOM RESERVATION FORM</header>
+
+<form id="form" class="topBefore">
+	
+  <input id="name" type="text" name="name" placeholder="NAME">
+  <input id="capacity" type="text" name="capacity" placeholder="CAPACITY">
+  <fieldset>PROJECTOR
+  <input id="radio1" type="radio" name="projector" value="1" checked>Yes
+  <input id="radio2" type="radio" name="projector" value="0">No
+  </fieldset>
+  <input id="submit" type="submit" value="GO!">
+</div>  
+</form>
+</body>
+</html>

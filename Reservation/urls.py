@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from room.views import AddRoom
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^room/new', AddRoom.as_view()),
 ]

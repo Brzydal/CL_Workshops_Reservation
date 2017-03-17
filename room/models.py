@@ -1,5 +1,7 @@
 from django.db import models
 
+# Create your models here.
+
 class Room(models.Model):
     name = models.CharField(max_length=64)
     capacity = models.IntegerField()
@@ -15,3 +17,4 @@ class Reservation(models.Model):
     
     def __str__(self):
         return '{}/{}'.format(self.date,self.comment)
+
