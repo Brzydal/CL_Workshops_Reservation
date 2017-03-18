@@ -213,5 +213,12 @@ select {
   margin: 15px 5px 15px 15px;
 }
 
-
+p {
+  position: relative;
+  margin: 25px 0 25px 0;
+  font-size: 1em;
+  text-align: center;
+  letter-spacing: 7px;
+  color:red;
+}
 

@@ -15,7 +15,7 @@
 
 <body>
 <header>ROOM RESERVATION FORM</header>
-
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
 <form id="form" class="topBefore" method="POST">{% csrf_token %}
 	
   <fieldset>ROOM NAME
