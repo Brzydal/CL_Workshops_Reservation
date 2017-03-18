@@ -28,7 +28,10 @@
         <td><a href="http://127.0.0.1:8000/room/{{room.id}}">{{room.name}}</a></td>
         <td>{{room.capacity}}</td>
         <td>{{room.projector}}</td>
-        <td><a href="http://127.0.0.1:8000/room/modify/{{room.id}}" type="button" class="btn btn-default"">Edit</a></td>
+        <td>
+        	<a href="http://127.0.0.1:8000/room/modify/{{room.id}}" type="button" class="btn btn-default"">Edit</a>
+        	<a href="http://127.0.0.1:8000/room/delete/{{room.id}}" type="button" class="btn btn-danger"">Delete</a>
+        </td>
       </tr>
     {% endfor %}
     </tbody>

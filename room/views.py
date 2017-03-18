@@ -2,12 +2,6 @@ from django.shortcuts import render,redirect
 from django.views import View
 from django.http import HttpResponse
 from room.models import *
-# Create your views here.
-
-def all_rooms(request):
-    rooms = Room.objects.all()
-    context = {'rooms':rooms}
-    return render(request,'room/all_rooms.html',context)
     
 class AddRoom(View):
     
@@ -36,3 +30,13 @@ class ModifyRoom(View):
         room.projector = bool(request.POST.get('projector'))
         room.save()
         return redirect('/')
+
+def all_rooms(request):
+    rooms = Room.objects.all()
+    context = {'rooms':rooms}
+    return render(request,'room/all_rooms.html',context)
+
+def delete_room(request,room_id):
+    room = Room.objects.get(pk=room_id)
+    room.delete()
+    return redirect('/')

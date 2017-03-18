@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from room.views import all_rooms, AddRoom, ModifyRoom
+from room.views import all_rooms,delete_room, AddRoom, ModifyRoom
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^room/new$', AddRoom.as_view()),
     url(r'^room/modify/(?P<room_id>\d+)$', ModifyRoom.as_view()),
+    url(r'^room/delete/(?P<room_id>\d+)$', delete_room),
     url(r'^$', all_rooms),
 ]
