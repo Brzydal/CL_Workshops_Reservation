@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views import View
 from django.http import HttpResponse
+from datetime import datetime
 from room.models import *
     
 class AddRoom(View):
@@ -45,4 +46,20 @@ def room_details(request,room_id):
     room = Room.objects.get(pk=room_id)
     context = {'room':room}
     return render(request,'room/room_details.html',context)
+
+class AddReservation(View):
+    
+    def get(self,request):
+        rooms = Room.objects.all()
+        context = {'rooms':rooms}
+        reservation = Reservation()
+        return render(request,'room/reservation_form.html',context)
+    
+    def post(self,request):
+        room_id = request.POST.get('room')
+        date = datetime.date(datetime.strptime(request.POST.get('date'),'%Y-%m-%d'))
+        comment = request.POST.get('comment')
+        room = Room.objects.get(pk=room_id)
+        reservation = Reservation.objects.create(room_id=room, date=date,comment=comment)
+        return redirect('/')
     

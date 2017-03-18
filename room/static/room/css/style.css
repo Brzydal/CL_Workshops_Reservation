@@ -207,3 +207,11 @@ fieldset {
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
 }
+
+select {
+  width: 100px;  
+  margin: 15px 5px 15px 15px;
+}
+
+
+
