@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^room/modify/(?P<room_id>\d+)$', ModifyRoom.as_view()),
     url(r'^room/delete/(?P<room_id>\d+)$', delete_room),
     url(r'^room/(?P<room_id>\d+)$', room_details),
+    url(r'^reservation/new/(?P<room_id>\d+)$', AddReservation.as_view()),
     url(r'^reservation/new$', AddReservation.as_view()),
     url(r'^reservation/all$', all_reservations),
     url(r'^reservation/delete/(?P<reservation_id>\d+)$', delete_reservation),

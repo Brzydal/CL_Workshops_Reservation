@@ -50,8 +50,11 @@ def room_details(request,room_id):
 class AddReservation(View):
     error = None
     
-    def get(self,request):
-        rooms = Room.objects.all()
+    def get(self,request,room_id=None):
+        if room_id == None:
+            rooms = Room.objects.all()
+        else:
+            rooms = Room.objects.filter(id=room_id)
         context = {'rooms':rooms,
                    'error':self.error}
         reservation = Reservation()
