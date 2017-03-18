@@ -40,3 +40,9 @@ def delete_room(request,room_id):
     room = Room.objects.get(pk=room_id)
     room.delete()
     return redirect('/')
+
+def room_details(request,room_id):
+    room = Room.objects.get(pk=room_id)
+    context = {'room':room}
+    return render(request,'room/room_details.html',context)
+    
