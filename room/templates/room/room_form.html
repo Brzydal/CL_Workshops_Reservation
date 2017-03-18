@@ -15,7 +15,7 @@
 <body>
 <header>ROOM RESERVATION FORM</header>
 
-<form id="form" class="topBefore">
+<form id="form" class="topBefore" method="POST">{% csrf_token %}
 	
   <input id="name" type="text" name="name" placeholder="NAME">
   <input id="capacity" type="text" name="capacity" placeholder="CAPACITY">

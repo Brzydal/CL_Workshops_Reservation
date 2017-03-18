@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from room.views import AddRoom
+from room.views import all_rooms, AddRoom
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^room/new', AddRoom.as_view()),
+    url(r'^room/new$', AddRoom.as_view()),
+    url(r'^$', all_rooms),
 ]
