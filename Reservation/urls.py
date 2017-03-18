@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from room.views import all_rooms,delete_room, room_details,all_reservations,delete_reservation
-from room.views import AddRoom, ModifyRoom, AddReservation
+from room.views import AddRoom, ModifyRoom, AddReservation, search
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^room/new$', AddRoom.as_view()),
@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^reservation/new$', AddReservation.as_view()),
     url(r'^reservation/all$', all_reservations),
     url(r'^reservation/delete/(?P<reservation_id>\d+)$', delete_reservation),
+    url(r'^search/', search),
     url(r'^$', all_rooms),
 ]

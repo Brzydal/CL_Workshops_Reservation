@@ -98,4 +98,55 @@ def delete_reservation(request,reservation_id):
     reservation = Reservation.objects.get(pk=reservation_id)
     reservation.delete()
     return redirect('/reservation/all')
+
+def search(request):
+    error = None
+    response=HttpResponse()
+    if request.method == "GET":
+        name = request.GET.get('name')
+        capacity = request.GET.get('capacity')
+        projector = bool(request.GET.get('projector'))
+        
+        rooms = Room.objects.all()
+        
+        if name !='':
+            rooms=rooms.filter(name=name)
+        
+        if capacity !='':
+            rooms=rooms.filter(capacity__gte=int(capacity)) 
+        
+        if projector:
+            rooms=rooms.filter(projector=True)  
+            
+        if request.GET.get('date')!='':
+            try:
+                date = datetime.date(datetime.strptime(request.GET.get('date'),'%Y-%m-%d'))
+                reservations = Reservation.objects.filter(date=date)
+                for room in rooms:
+                    for reservation in reservations:
+                        response.write('{} {}<br>'.format(room.name,reservation.room_id.name))
+                        if room.name == reservation.room_id.name:
+                            rooms=rooms.exclude(name=room.name)
+#                 response.write('{}'.format(rooms))
+#                 return response
+#                     if date == room.reservation_set.all().date:
+#                         response.write('room')
+#                         rooms = rooms.filter(id=room.id)
+                    
+              
+            except ValueError:
+                error = 'Invalid date format YYYY-MM-DD'
+        
+        context = {'rooms':rooms,
+                   'error':error}
+        reservation = Reservation()
+        return render(request,'room/all_rooms.html',context)
+    
+    if request.method == "POST":
+        return HttpResponse("POST")
+
+   
+    
+    
+    
     
