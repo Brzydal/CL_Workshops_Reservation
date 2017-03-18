@@ -88,4 +88,14 @@ class AddReservation(View):
         else:
             reservation = Reservation.objects.create(room_id=room, date=date,comment=comment)
             return redirect('/')
+        
+def all_reservations(request):
+    reservations = Reservation.objects.all()
+    context = {'reservations':reservations}
+    return render(request,'room/all_reservations.html',context)
+
+def delete_reservation(request,reservation_id):
+    reservation = Reservation.objects.get(pk=reservation_id)
+    reservation.delete()
+    return redirect('/reservation/all')
     
