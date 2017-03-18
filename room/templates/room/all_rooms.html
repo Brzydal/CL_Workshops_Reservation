@@ -25,9 +25,10 @@
     <tbody>
     {% for room in rooms %}
       <tr>
-        <td>{{room.name}}</td>
+        <td><a href="http://127.0.0.1:8000/room/{{room.id}}">{{room.name}}</a></td>
         <td>{{room.capacity}}</td>
         <td>{{room.projector}}</td>
+        <td><a href="http://127.0.0.1:8000/room/modify/{{room.id}}" type="button" class="btn btn-default"">Edit</a></td>
       </tr>
     {% endfor %}
     </tbody>
