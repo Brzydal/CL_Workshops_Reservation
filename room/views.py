@@ -130,13 +130,7 @@ def search(request):
                         response.write('{} {}<br>'.format(room.name,reservation.room_id.name))
                         if room.name == reservation.room_id.name:
                             rooms=rooms.exclude(name=room.name)
-#                 response.write('{}'.format(rooms))
-#                 return response
-#                     if date == room.reservation_set.all().date:
-#                         response.write('room')
-#                         rooms = rooms.filter(id=room.id)
-                    
-              
+            
             except ValueError:
                 error = 'Invalid date format YYYY-MM-DD'
         
