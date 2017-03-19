@@ -14,6 +14,25 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">RR</a>
+    </div>
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Rooms</a></li>
+        <li><a href="http://127.0.0.1:8000/room/new">New Room</a></li>
+        <li><a href="http://127.0.0.1:8000/reservation/all">All Reservations</a></li>
+        <li><a href="http://127.0.0.1:8000/reservation/new">New Reservation</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 <header>ROOM RESERVATION FORM</header>
 {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
 <form id="form" class="topBefore" method="POST">{% csrf_token %}

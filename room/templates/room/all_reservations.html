@@ -25,11 +25,16 @@
         <li><a href="http://127.0.0.1:8000/reservation/new">New Reservation</a></li>
       </ul>
 	<!-- Search -->
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+      <form class="navbar-form navbar-left" action="http://127.0.0.1:8000/search/" method="GET">
+        <div class="form-group">Search by:
+          <input type="text" name="name" class="form-control" placeholder="Name">
+          <input type="text" name="capacity" class="form-control" placeholder="Capacity">
+          <input type="text" name="date" class="form-control" placeholder="Date">
+          Projector:
+          <input id="radio1" type="radio" name="projector" value="1" checked>Yes
+  		  <input id="radio2" type="radio" name="projector" value=''>No
+  		  <button type="submit" class="btn btn-default">Search</button>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
